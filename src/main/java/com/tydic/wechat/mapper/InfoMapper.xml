@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tydic.wechat.mapper.InfoMapper" >
+    <resultMap id="BaseResultMap" type="com.tydic.wechat.entity.WechatInfo" >
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        <result column="APP_ID" property="appId" jdbcType="VARCHAR" />
+        <result column="APP_SECRET" property="appSecret" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        ID, APP_ID, APP_SECRET
+    </sql>
+    <select id="getInfoById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from WECHAT_INFO
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getInfo" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from WECHAT_INFO
+    </select>
+</mapper>

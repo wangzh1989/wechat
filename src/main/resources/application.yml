@@ -1,0 +1,21 @@
+spring:
+  profiles: dev
+# 数据源配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wechat
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# 与mybatis整合
+mybatis:
+  type-aliases-package: com.tydic.wechat.entity
+  mapperLocations: classpath:mapper/*.xml
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
